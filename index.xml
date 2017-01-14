@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>c1ay</title>
-    <link>https://c1ay.github.io/</link>
+    <link>https://c1ay.github.io/index.xml</link>
     <description>Recent content on c1ay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
