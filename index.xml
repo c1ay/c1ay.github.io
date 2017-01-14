@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c1ay</title>
+    <link>c1ay.cc/</link>
+    <description>Recent content on c1ay</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Jan 2017 13:59:19 +0800</lastBuildDate>
+    <atom:link href="c1ay.cc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>about</title>
+      <link>/c1ay.cc/about/</link>
+      <pubDate>Sat, 14 Jan 2017 13:59:19 +0800</pubDate>
+      
+      <guid>/c1ay.cc/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>/c1ay.cc/post/hugo/</link>
+      <pubDate>Sat, 14 Jan 2017 13:35:32 +0800</pubDate>
+      
+      <guid>/c1ay.cc/post/hugo/</guid>
+      <description>&lt;p&gt;First article which using &lt;code&gt;hugo&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
