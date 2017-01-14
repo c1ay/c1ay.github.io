@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post on c1ay</title>
-    <link>https://c1ay.github.io/post/index.xml</link>
-    <description>Recent content in Post on c1ay</description>
+    <title>Blog on c1ay</title>
+    <link>https://c1ay.github.io/blog/index.xml</link>
+    <description>Recent content in Blog on c1ay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 Jan 2017 13:35:32 +0800</lastBuildDate>
-    <atom:link href="https://c1ay.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://c1ay.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>hugo</title>
-      <link>https://c1ay.github.io/post/hugo/</link>
+      <link>https://c1ay.github.io/blog/hugo/</link>
       <pubDate>Sat, 14 Jan 2017 13:35:32 +0800</pubDate>
       
-      <guid>https://c1ay.github.io/post/hugo/</guid>
+      <guid>https://c1ay.github.io/blog/hugo/</guid>
       <description>&lt;p&gt;First article which using &lt;code&gt;hugo&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
