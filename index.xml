@@ -6,8 +6,36 @@
     <description>Recent content on c1ay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Jan 2017 13:59:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Feb 2017 20:41:19 +0800</lastBuildDate>
     <atom:link href="https://c1ay.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>a simple introduction to computer networking</title>
+      <link>https://c1ay.github.io/blog/a-simple-introduction-to-computer-networking/</link>
+      <pubDate>Fri, 17 Feb 2017 20:41:19 +0800</pubDate>
+      
+      <guid>https://c1ay.github.io/blog/a-simple-introduction-to-computer-networking/</guid>
+      <description>
+
+&lt;p&gt;大多数关于计算机网络的都是一大堆首字母缩写。忘掉这些配置细节&amp;mdash;-你有什么看法？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;网络是关于通信&lt;/li&gt;
+&lt;li&gt;文本是最简单的沟通方式&lt;/li&gt;
+&lt;li&gt;协议是读和写这些文本的标准&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在细节下面，网络是一个IM对话。这是我希望有人告诉我，当学习如何计算机通信。&lt;/p&gt;
+
+&lt;h3 id=&#34;tcp-文本层&#34;&gt;&lt;em&gt;TCP: 文本层&lt;/em&gt;&lt;/h3&gt;
+
+&lt;p&gt;传输控制协议（TCP）让我们有了很方便在两台计算机之间发送文本的错觉。 TCP依赖于较低级别并且可以发送二进制数据，但是现在忽略它：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TCP允许我们在计算机之间进行即时消息&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>about</title>
