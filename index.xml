@@ -34,6 +34,8 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;TCP允许我们在计算机之间进行即时消息&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;We IM with Telnet, the ‘notepad’ of networking: telnet sends and receives plain text using TCP. It’s a chat client peacefully free of ads and unsolicited buddy requests.&lt;/p&gt;
 </description>
     </item>
     
