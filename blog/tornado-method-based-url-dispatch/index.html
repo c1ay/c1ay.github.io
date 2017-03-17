@@ -13,10 +13,10 @@
 <title>
 
 
-     hugo 
+     tornado method based URL dispatch 
 
 </title>
-<link rel="canonical" href="https://c1ay.github.io/blog/hugo/">
+<link rel="canonical" href="https://c1ay.github.io/blog/tornado-method-based-url-dispatch/">
 
 
 
@@ -118,7 +118,7 @@
                 <div class="title-container">
                     <div class="page-heading">
 
-    hugo
+    tornado method based URL dispatch
 
 </div>
 
@@ -126,7 +126,7 @@
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Thu Jan 14 2016 13:35:32 &#43;0800'>Jan 14, 2016</div>
+                    <div class="date" title='Wed Aug 17 2016 14:33:27 &#43;0800'>Aug 17, 2016</div>
                     
                     
                     <div class="reading-time"><div class="middot"></div>1 minute read</div>
@@ -136,33 +136,120 @@
             <div class="markdown">
                 
 
-<h2 id="使用hugo:32ab7241d48fcc174c877413a917f8cf">使用hugo:</h2>
+<h3 id="基于-method-的url-分发:2e37154bfebd3b75369897c84945823f">基于 method 的URL 分发</h3>
 
-<p>一直想学习<code>golang</code>，看到了<code>hugo</code>，想用hugo弄个博客，找到官方网站，跟着文档一步步来，安装，选主题，配置，没什么问题。步骤和<code>hexo</code>一样。</p>
+<h4 id="问题:2e37154bfebd3b75369897c84945823f">问题:</h4>
 
-<h2 id="踩坑:32ab7241d48fcc174c877413a917f8cf">踩坑:</h2>
+<p>如果我要完成同一层级下不同url的get请求, 只能写成这样:</p>
 
-<ul>
-<li>第一个坑：使用持续集成&mdash;<code>wercker</code>，官方文档中使用的<code>wercker</code>，应该是以前的版本，新版本已经将deploy去掉，变成可配置的工作流，需要自己加一个pipline</li>
+<pre><code class="language-python">from tornado.web import RequestHandler
 
-<li><p>第二个坑：文档中是没有例子怎么将网站push到github pages，使用<code>leipert/git-push</code> push到github，这个项目是有bug:</p>
+class InterfaceOne(RequestHandler):
 
-<pre><code>run.sh: line 5: getAllStepVars: command not found
-</code></pre></li>
-</ul>
+    def get(self):
+        self.write('InterfaceOne')
 
-<p>这个作者已经很久更新了，而且issue里是有人提了这个bug，也提交了pr，作者也没有更新。所以换做<code>ysqi/git-push</code></p>
+class InterfaceTwo(RequestHandler):
 
-<h2 id="使用-ci-持续集成:32ab7241d48fcc174c877413a917f8cf">使用<code>CI</code>(持续集成):</h2>
+    def get(self):
+        self.write('InterfaceTwo')
 
-<p>持续集成，我的感觉是将软件发布的流程自动化：</p>
+application = tornado.web.Application([
+    (r&quot;/level_1/interface_one&quot;, InterfaceOne),
+    (r&quot;/level_1/interface_two&quot;, InterfaceTwo),
+])
 
-<ul>
-<li>提交：对于开发者而言，是一次<code>commit</code></li>
-<li>构建：build, 将源码构建为实际运行代码</li>
-<li>测试：跑测试</li>
-<li>部署</li>
-</ul>
+</code></pre>
+
+<p>我不想每个接口都要写一个类去处理，而这些请求只需要处理<code>GET</code>请求，还要为每个类去注册<code>url</code></p>
+
+<p>有没有什么解决方案去处理呢，加上我又很懒，最好<code>url</code>也能自己生成. 像这样:</p>
+
+<pre><code class="language-python">class Level:
+
+    def interface_one(self):
+        # 处理 url /level/interface_one 的请求
+        pass
+
+    def interface_two(self):
+        # 处理 url /level/interface_two 的请求
+        pass
+</code></pre>
+
+<h4 id="解决方案:2e37154bfebd3b75369897c84945823f">解决方案:</h4>
+
+<pre><code class="language-python">class MethodDispatcher(RequestHandler):
+
+    allow_methods = ()
+
+    def set_default_headers(self):
+        origin = None
+        if self.request.headers.get('Origin'):
+            origin = self.request.headers['Origin']
+        else:
+            url = self.request.headers.get('Referer')
+            if url:
+                import re
+                pat = re.compile(r'(http|https)://.+/')
+                match = pat.search(url)
+                origin = match.group()[0:-1]
+        if origin:
+            self.set_header('Access-Control-Allow-Origin', origin)
+        self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+        self.set_header('Access-Control-Max-Age', 1000)
+        self.set_header('Access-Control-Allow-Headers', 'Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With')
+        self.set_header('Access-Control-Allow-Credentials', 'true')
+
+    @db_session
+    def get_request_user(self):
+        session = self.get_cookie(&quot;session_id&quot;)
+        if session:
+            ret = RedisClient().client.get(AUTHEN_TOKEN_KEY % session)
+            if ret:
+                account = RiskAccount.get(account=ret)
+                return account
+
+    def _delist_arguments(self, args):
+        for arg, value in args.items():
+            if len(value) == 1:
+                args[arg] = value[0]
+        return args
+
+    def _dispatcher(self):
+        args = None
+
+        if self.request.arguments:
+            args = self._delist_arguments(self.request.arguments)
+
+        path = self.request.uri.split('?')[0]
+        method = path.split('/')[-1]
+        if not method.startswith('_'):
+            if method not in self.allow_methods:
+                raise HTTPError(404)
+            func = getattr(self, method, None)
+            if func:
+                if args:
+                    return func(**args)
+                else:
+                    return func()
+            else:
+                raise HTTPError(404)
+        else:
+            raise HTTPError(404)
+
+    def get(self):
+        self.method = 'GET'
+        return self._dispatcher()
+
+    def post(self):
+        self.method = 'POST'
+        return self._dispatcher()
+
+    def options(self):
+        self.set_status(204)
+        self.finish()
+
+</code></pre>
 
                 <br>
                 <p><a href="https://c1ay.github.io/blog/">Back to posts</a></p>
@@ -172,9 +259,9 @@
                 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'c1ay';
-    var disqus_identifier = 'https:\/\/c1ay.github.io\/blog\/hugo\/';
-    var disqus_title = 'hugo';
-    var disqus_url = 'https:\/\/c1ay.github.io\/blog\/hugo\/';
+    var disqus_identifier = 'https:\/\/c1ay.github.io\/blog\/tornado-method-based-url-dispatch\/';
+    var disqus_title = 'tornado method based URL dispatch';
+    var disqus_url = 'https:\/\/c1ay.github.io\/blog\/tornado-method-based-url-dispatch\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

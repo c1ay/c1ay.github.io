@@ -50,6 +50,131 @@
     </item>
     
     <item>
+      <title>tornado method based URL dispatch</title>
+      <link>https://c1ay.github.io/blog/tornado-method-based-url-dispatch/</link>
+      <pubDate>Wed, 17 Aug 2016 14:33:27 +0800</pubDate>
+      
+      <guid>https://c1ay.github.io/blog/tornado-method-based-url-dispatch/</guid>
+      <description>
+
+&lt;h3 id=&#34;基于-method-的url-分发:2e37154bfebd3b75369897c84945823f&#34;&gt;基于 method 的URL 分发&lt;/h3&gt;
+
+&lt;h4 id=&#34;问题:2e37154bfebd3b75369897c84945823f&#34;&gt;问题:&lt;/h4&gt;
+
+&lt;p&gt;如果我要完成同一层级下不同url的get请求, 只能写成这样:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from tornado.web import RequestHandler
+
+class InterfaceOne(RequestHandler):
+
+    def get(self):
+        self.write(&#39;InterfaceOne&#39;)
+
+class InterfaceTwo(RequestHandler):
+
+    def get(self):
+        self.write(&#39;InterfaceTwo&#39;)
+
+application = tornado.web.Application([
+    (r&amp;quot;/level_1/interface_one&amp;quot;, InterfaceOne),
+    (r&amp;quot;/level_1/interface_two&amp;quot;, InterfaceTwo),
+])
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我不想每个接口都要写一个类去处理，而这些请求只需要处理&lt;code&gt;GET&lt;/code&gt;请求，还要为每个类去注册&lt;code&gt;url&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;有没有什么解决方案去处理呢，加上我又很懒，最好&lt;code&gt;url&lt;/code&gt;也能自己生成. 像这样:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Level:
+
+    def interface_one(self):
+        # 处理 url /level/interface_one 的请求
+        pass
+
+    def interface_two(self):
+        # 处理 url /level/interface_two 的请求
+        pass
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;解决方案:2e37154bfebd3b75369897c84945823f&#34;&gt;解决方案:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class MethodDispatcher(RequestHandler):
+
+    allow_methods = ()
+
+    def set_default_headers(self):
+        origin = None
+        if self.request.headers.get(&#39;Origin&#39;):
+            origin = self.request.headers[&#39;Origin&#39;]
+        else:
+            url = self.request.headers.get(&#39;Referer&#39;)
+            if url:
+                import re
+                pat = re.compile(r&#39;(http|https)://.+/&#39;)
+                match = pat.search(url)
+                origin = match.group()[0:-1]
+        if origin:
+            self.set_header(&#39;Access-Control-Allow-Origin&#39;, origin)
+        self.set_header(&#39;Access-Control-Allow-Methods&#39;, &#39;POST, GET, OPTIONS&#39;)
+        self.set_header(&#39;Access-Control-Max-Age&#39;, 1000)
+        self.set_header(&#39;Access-Control-Allow-Headers&#39;, &#39;Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With&#39;)
+        self.set_header(&#39;Access-Control-Allow-Credentials&#39;, &#39;true&#39;)
+
+    @db_session
+    def get_request_user(self):
+        session = self.get_cookie(&amp;quot;session_id&amp;quot;)
+        if session:
+            ret = RedisClient().client.get(AUTHEN_TOKEN_KEY % session)
+            if ret:
+                account = RiskAccount.get(account=ret)
+                return account
+
+    def _delist_arguments(self, args):
+        for arg, value in args.items():
+            if len(value) == 1:
+                args[arg] = value[0]
+        return args
+
+    def _dispatcher(self):
+        args = None
+
+        if self.request.arguments:
+            args = self._delist_arguments(self.request.arguments)
+
+        path = self.request.uri.split(&#39;?&#39;)[0]
+        method = path.split(&#39;/&#39;)[-1]
+        if not method.startswith(&#39;_&#39;):
+            if method not in self.allow_methods:
+                raise HTTPError(404)
+            func = getattr(self, method, None)
+            if func:
+                if args:
+                    return func(**args)
+                else:
+                    return func()
+            else:
+                raise HTTPError(404)
+        else:
+            raise HTTPError(404)
+
+    def get(self):
+        self.method = &#39;GET&#39;
+        return self._dispatcher()
+
+    def post(self):
+        self.method = &#39;POST&#39;
+        return self._dispatcher()
+
+    def options(self):
+        self.set_status(204)
+        self.finish()
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>zsh to fish</title>
       <link>https://c1ay.github.io/blog/zsh-to-fish/</link>
       <pubDate>Wed, 16 Mar 2016 14:45:35 +0800</pubDate>
