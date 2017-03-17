@@ -89,11 +89,33 @@ application = tornado.web.Application([
 
 &lt;h4 id=&#34;解决方案:2e37154bfebd3b75369897c84945823f&#34;&gt;解决方案:&lt;/h4&gt;
 
+&lt;p&gt;最终效果&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+class Test(MethodDispatcher):
+
+    def interface_one(self):
+        # 处理 url /test/interface_one 的请求
+        self.write(self.request.path)
+
+    def interface_two(self):
+        # 处理 url /test/interface_two 的请求
+        self.write(self.request.path)
+
+application = tornado.web.Application([
+    (r&amp;quot;/test/.*&amp;quot;, Test),
+])
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;MethodDispatcher&lt;/code&gt; 最终的实现&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class MethodDispatcher(RequestHandler):
 
     allow_methods = ()
 
     def set_default_headers(self):
+        # 这里是允许跨域请求
         origin = None
         if self.request.headers.get(&#39;Origin&#39;):
             origin = self.request.headers[&#39;Origin&#39;]
@@ -108,19 +130,11 @@ application = tornado.web.Application([
             self.set_header(&#39;Access-Control-Allow-Origin&#39;, origin)
         self.set_header(&#39;Access-Control-Allow-Methods&#39;, &#39;POST, GET, OPTIONS&#39;)
         self.set_header(&#39;Access-Control-Max-Age&#39;, 1000)
-        self.set_header(&#39;Access-Control-Allow-Headers&#39;, &#39;Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With&#39;)
+        self.set_header(&#39;Access-Control-Allow-Headers&#39;, &#39;*&#39;)
         self.set_header(&#39;Access-Control-Allow-Credentials&#39;, &#39;true&#39;)
 
-    @db_session
-    def get_request_user(self):
-        session = self.get_cookie(&amp;quot;session_id&amp;quot;)
-        if session:
-            ret = RedisClient().client.get(AUTHEN_TOKEN_KEY % session)
-            if ret:
-                account = RiskAccount.get(account=ret)
-                return account
-
     def _delist_arguments(self, args):
+        # 将GET 参数转化成 参数
         for arg, value in args.items():
             if len(value) == 1:
                 args[arg] = value[0]
@@ -161,6 +175,10 @@ application = tornado.web.Application([
         self.finish()
 
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;参考: &lt;a href=&#34;http://code.activestate.com/recipes/576958/&#34;&gt;http://code.activestate.com/recipes/576958/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     

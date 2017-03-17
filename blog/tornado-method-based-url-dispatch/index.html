@@ -34,11 +34,11 @@
 
 
     
-    <link rel="stylesheet" href="https://c1ay.github.io/css/reset.css?t=1489734083">
-    <link rel="stylesheet" href="https://c1ay.github.io/css/pygments.css?t=1489734083">
-    <link rel="stylesheet" href="https://c1ay.github.io/css/main.css?t=1489734083">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/reset.css?t=1489735167">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/pygments.css?t=1489735167">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/main.css?t=1489735167">
     
-        <link rel="stylesheet" href="https://c1ay.github.io/css/override.css?t=1489734083">
+        <link rel="stylesheet" href="https://c1ay.github.io/css/override.css?t=1489735167">
     
 
 
@@ -178,11 +178,33 @@ application = tornado.web.Application([
 
 <h4 id="解决方案:2e37154bfebd3b75369897c84945823f">解决方案:</h4>
 
+<p>最终效果</p>
+
+<pre><code class="language-python">
+class Test(MethodDispatcher):
+
+    def interface_one(self):
+        # 处理 url /test/interface_one 的请求
+        self.write(self.request.path)
+
+    def interface_two(self):
+        # 处理 url /test/interface_two 的请求
+        self.write(self.request.path)
+
+application = tornado.web.Application([
+    (r&quot;/test/.*&quot;, Test),
+])
+
+</code></pre>
+
+<p><code>MethodDispatcher</code> 最终的实现</p>
+
 <pre><code class="language-python">class MethodDispatcher(RequestHandler):
 
     allow_methods = ()
 
     def set_default_headers(self):
+        # 这里是允许跨域请求
         origin = None
         if self.request.headers.get('Origin'):
             origin = self.request.headers['Origin']
@@ -197,19 +219,11 @@ application = tornado.web.Application([
             self.set_header('Access-Control-Allow-Origin', origin)
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
         self.set_header('Access-Control-Max-Age', 1000)
-        self.set_header('Access-Control-Allow-Headers', 'Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With')
+        self.set_header('Access-Control-Allow-Headers', '*')
         self.set_header('Access-Control-Allow-Credentials', 'true')
 
-    @db_session
-    def get_request_user(self):
-        session = self.get_cookie(&quot;session_id&quot;)
-        if session:
-            ret = RedisClient().client.get(AUTHEN_TOKEN_KEY % session)
-            if ret:
-                account = RiskAccount.get(account=ret)
-                return account
-
     def _delist_arguments(self, args):
+        # 将GET 参数转化成 参数
         for arg, value in args.items():
             if len(value) == 1:
                 args[arg] = value[0]
@@ -250,6 +264,10 @@ application = tornado.web.Application([
         self.finish()
 
 </code></pre>
+
+<blockquote>
+<p>参考: <a href="http://code.activestate.com/recipes/576958/">http://code.activestate.com/recipes/576958/</a></p>
+</blockquote>
 
                 <br>
                 <p><a href="https://c1ay.github.io/blog/">Back to posts</a></p>
