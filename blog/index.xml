@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on c1ay</title>
-    <link>https://c1ay.github.io/blog/index.xml</link>
+    <link>https://c1ay.github.io/blog/</link>
     <description>Recent content in Blog on c1ay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,11 +10,11 @@
     <atom:link href="https://c1ay.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>a simple introduction to computer networking</title>
-      <link>https://c1ay.github.io/blog/a-simple-introduction-to-computer-networking/</link>
+      <title>（转）a simple introduction to computer networking</title>
+      <link>https://c1ay.github.io/blog/%E8%BD%ACa-simple-introduction-to-computer-networking/</link>
       <pubDate>Fri, 17 Feb 2017 20:41:19 +0800</pubDate>
       
-      <guid>https://c1ay.github.io/blog/a-simple-introduction-to-computer-networking/</guid>
+      <guid>https://c1ay.github.io/blog/%E8%BD%ACa-simple-introduction-to-computer-networking/</guid>
       <description>
 
 &lt;p&gt;大多数关于计算机网络的都是一大堆首字母缩写。忘掉这些配置细节&amp;mdash;-你有什么看法？&lt;/p&gt;
@@ -27,7 +27,7 @@
 
 &lt;p&gt;在细节下面，网络是一个IM对话。这是我希望有人告诉我，当学习如何计算机通信。&lt;/p&gt;
 
-&lt;h3 id=&#34;tcp-文本层&#34;&gt;&lt;em&gt;TCP: 文本层&lt;/em&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;tcp-文本层:6f45369c593e461cb825c990e56a083c&#34;&gt;&lt;em&gt;TCP: 文本层&lt;/em&gt;&lt;/h3&gt;
 
 &lt;p&gt;传输控制协议（TCP）让我们有了很方便在两台计算机之间发送文本的错觉。 TCP依赖于较低级别并且可以发送二进制数据，但是现在忽略它：&lt;/p&gt;
 
@@ -47,11 +47,11 @@
       <guid>https://c1ay.github.io/blog/hugo/</guid>
       <description>
 
-&lt;h2 id=&#34;使用hugo&#34;&gt;使用hugo:&lt;/h2&gt;
+&lt;h2 id=&#34;使用hugo:32ab7241d48fcc174c877413a917f8cf&#34;&gt;使用hugo:&lt;/h2&gt;
 
 &lt;p&gt;一直想学习&lt;code&gt;golang&lt;/code&gt;，看到了&lt;code&gt;hugo&lt;/code&gt;，想用hugo弄个博客，找到官方网站，跟着文档一步步来，安装，选主题，配置，没什么问题。步骤和&lt;code&gt;hexo&lt;/code&gt;一样。&lt;/p&gt;
 
-&lt;h2 id=&#34;踩坑&#34;&gt;踩坑:&lt;/h2&gt;
+&lt;h2 id=&#34;踩坑:32ab7241d48fcc174c877413a917f8cf&#34;&gt;踩坑:&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;第一个坑：使用持续集成&amp;mdash;&lt;code&gt;wercker&lt;/code&gt;，官方文档中使用的&lt;code&gt;wercker&lt;/code&gt;，应该是以前的版本，新版本已经将deploy去掉，变成可配置的工作流，需要自己加一个pipline&lt;/li&gt;
@@ -64,7 +64,7 @@
 
 &lt;p&gt;这个作者已经很久更新了，而且issue里是有人提了这个bug，也提交了pr，作者也没有更新。所以换做&lt;code&gt;ysqi/git-push&lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;使用-ci-持续集成&#34;&gt;使用&lt;code&gt;CI&lt;/code&gt;(持续集成):&lt;/h2&gt;
+&lt;h2 id=&#34;使用-ci-持续集成:32ab7241d48fcc174c877413a917f8cf&#34;&gt;使用&lt;code&gt;CI&lt;/code&gt;(持续集成):&lt;/h2&gt;
 
 &lt;p&gt;持续集成，我的感觉是将软件发布的流程自动化：&lt;/p&gt;
 
@@ -74,6 +74,29 @@
 &lt;li&gt;测试：跑测试&lt;/li&gt;
 &lt;li&gt;部署&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>zsh to fish</title>
+      <link>https://c1ay.github.io/blog/zsh-to-fish/</link>
+      <pubDate>Wed, 16 Mar 2016 14:45:35 +0800</pubDate>
+      
+      <guid>https://c1ay.github.io/blog/zsh-to-fish/</guid>
+      <description>
+
+&lt;p&gt;顺手的工具有不少，原来用&lt;code&gt;zsh&lt;/code&gt;虽然很顺手，但总觉得有点慢，索性试了试&lt;code&gt;fish&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;zsh-和-fish-对比:56d9c163c3c213e17f04852f404a0102&#34;&gt;zsh 和 fish 对比&lt;/h3&gt;
+
+&lt;p&gt;|   | 优点 | 缺点 |
+|&amp;ndash; | &amp;ndash; | &amp;ndash; |
+| zsh | 插件多，配置丰富 | 插件多了慢 |
+| fish | 开箱即用 | 不兼容bash语法 |&lt;/p&gt;
+
+&lt;h3 id=&#34;fish配置:56d9c163c3c213e17f04852f404a0102&#34;&gt;fish配置&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;fish_config&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
     
