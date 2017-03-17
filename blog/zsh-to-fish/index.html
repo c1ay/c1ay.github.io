@@ -34,11 +34,11 @@
 
 
     
-    <link rel="stylesheet" href="https://c1ay.github.io/css/reset.css?t=1489718791">
-    <link rel="stylesheet" href="https://c1ay.github.io/css/pygments.css?t=1489718791">
-    <link rel="stylesheet" href="https://c1ay.github.io/css/main.css?t=1489718791">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/reset.css?t=1489724499">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/pygments.css?t=1489724499">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/main.css?t=1489724499">
     
-        <link rel="stylesheet" href="https://c1ay.github.io/css/override.css?t=1489718791">
+        <link rel="stylesheet" href="https://c1ay.github.io/css/override.css?t=1489724499">
     
 
 
@@ -163,12 +163,60 @@
 <li>git</li>
 </ul>
 
+<p>虽然fish的语法更加接近一名编程语言，奈何大多数工具脚本都是bash写的，而服务器上更不可能为了方便而安装fish,还是自己电脑上用好了</p>
+
+<p>不过发现<code>python</code> 的virtualenvl 的activate的有fishshell 支持的！！</p>
+
+<h3 id="一些语法改动:56d9c163c3c213e17f04852f404a0102">一些语法改动</h3>
+
+<p>PATH 写法</p>
+
+<p>bash:</p>
+
+<pre><code class="language-bash">export PATH=&quot;/usr/local/bin:$PATH&quot;
+</code></pre>
+
+<p>fish:</p>
+
+<pre><code class="language-fish">set PATH $PATH /usr/local/bin
+</code></pre>
+
 <h3 id="fish配置:56d9c163c3c213e17f04852f404a0102">fish配置</h3>
 
 <p>使用<code>fish_config</code>，新开一个网页来配置主题，函数</p>
 
-<p><img src="/img/fish_config.png" alt="fish_config">
-![fish_config](&ldquo;<a href="https://c1ay.github.io/img/fish_config.png&quot;">https://c1ay.github.io/img/fish_config.png&quot;</a>)</p>
+<p><img src="https://c1ay.github.io/img/fish_config.png" alt="fish_config"></p>
+
+<h3 id="fish插件管理工具-omf:56d9c163c3c213e17f04852f404a0102">fish插件管理工具 <code>omf</code></h3>
+
+<h4 id="安装omf:56d9c163c3c213e17f04852f404a0102">安装omf</h4>
+
+<p><code>curl -L https://get.oh-my.fish | fish</code></p>
+
+<h4 id="使用新主题:56d9c163c3c213e17f04852f404a0102">使用新主题</h4>
+
+<p><code>omf install robbyrussell</code></p>
+
+<p><code>omf theme robbyrussell</code></p>
+
+<p>这个主题对git的支持很完善</p>
+
+<p><img src="https://c1ay.github.io/img/robbyrussel.png" alt="robbyrussel"></p>
+
+<p>错误的也会有红色标记， 同时也会根据历史和命令给出建议</p>
+
+<p><img src="https://c1ay.github.io/img/cut_1.png" alt="cut_1"></p>
+
+<h4 id="提供对-bash-脚本支持:56d9c163c3c213e17f04852f404a0102">提供对<code>bash</code> 脚本支持</h4>
+
+<p>安装<code>bass</code></p>
+
+<p><code>git clone https://github.com/edc/bass.git</code>
+<code>make install</code></p>
+
+<p>使用</p>
+
+<p><img src="https://c1ay.github.io/img/bass.png" alt="bass"></p>
 
                 <br>
                 <p><a href="https://c1ay.github.io/blog/">Back to posts</a></p>

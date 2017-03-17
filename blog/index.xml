@@ -112,12 +112,60 @@
 &lt;li&gt;git&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;虽然fish的语法更加接近一名编程语言，奈何大多数工具脚本都是bash写的，而服务器上更不可能为了方便而安装fish,还是自己电脑上用好了&lt;/p&gt;
+
+&lt;p&gt;不过发现&lt;code&gt;python&lt;/code&gt; 的virtualenvl 的activate的有fishshell 支持的！！&lt;/p&gt;
+
+&lt;h3 id=&#34;一些语法改动:56d9c163c3c213e17f04852f404a0102&#34;&gt;一些语法改动&lt;/h3&gt;
+
+&lt;p&gt;PATH 写法&lt;/p&gt;
+
+&lt;p&gt;bash:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PATH=&amp;quot;/usr/local/bin:$PATH&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fish:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-fish&#34;&gt;set PATH $PATH /usr/local/bin
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id=&#34;fish配置:56d9c163c3c213e17f04852f404a0102&#34;&gt;fish配置&lt;/h3&gt;
 
 &lt;p&gt;使用&lt;code&gt;fish_config&lt;/code&gt;，新开一个网页来配置主题，函数&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;img/fish_config.png&#34; alt=&#34;fish_config&#34;&gt;
-![fish_config](&amp;ldquo;&lt;a href=&#34;https://c1ay.github.io/img/fish_config.png&amp;quot;&#34;&gt;https://c1ay.github.io/img/fish_config.png&amp;quot;&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://c1ay.github.io/img/fish_config.png&#34; alt=&#34;fish_config&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;fish插件管理工具-omf:56d9c163c3c213e17f04852f404a0102&#34;&gt;fish插件管理工具 &lt;code&gt;omf&lt;/code&gt;&lt;/h3&gt;
+
+&lt;h4 id=&#34;安装omf:56d9c163c3c213e17f04852f404a0102&#34;&gt;安装omf&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;curl -L https://get.oh-my.fish | fish&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;使用新主题:56d9c163c3c213e17f04852f404a0102&#34;&gt;使用新主题&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;omf install robbyrussell&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;omf theme robbyrussell&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这个主题对git的支持很完善&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://c1ay.github.io/img/robbyrussel.png&#34; alt=&#34;robbyrussel&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;错误的也会有红色标记， 同时也会根据历史和命令给出建议&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://c1ay.github.io/img/cut_1.png&#34; alt=&#34;cut_1&#34;&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;提供对-bash-脚本支持:56d9c163c3c213e17f04852f404a0102&#34;&gt;提供对&lt;code&gt;bash&lt;/code&gt; 脚本支持&lt;/h4&gt;
+
+&lt;p&gt;安装&lt;code&gt;bass&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git clone https://github.com/edc/bass.git&lt;/code&gt;
+&lt;code&gt;make install&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;使用&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://c1ay.github.io/img/bass.png&#34; alt=&#34;bass&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
