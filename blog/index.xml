@@ -89,14 +89,33 @@
 
 &lt;h3 id=&#34;zsh-和-fish-对比:56d9c163c3c213e17f04852f404a0102&#34;&gt;zsh 和 fish 对比&lt;/h3&gt;
 
-&lt;p&gt;|   | 优点 | 缺点 |
-|&amp;ndash; | &amp;ndash; | &amp;ndash; |
-| zsh | 插件多，配置丰富 | 插件多了慢 |
-| fish | 开箱即用 | 不兼容bash语法 |&lt;/p&gt;
+&lt;h4 id=&#34;zsh:56d9c163c3c213e17f04852f404a0102&#34;&gt;zsh&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;插件多，配置丰富&lt;/li&gt;
+&lt;li&gt;插件多了慢 |&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;fish:56d9c163c3c213e17f04852f404a0102&#34;&gt;fish&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;开箱即用&lt;/li&gt;
+&lt;li&gt;不兼容bash语法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;我需求的功能:56d9c163c3c213e17f04852f404a0102&#34;&gt;我需求的功能&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;autosuggestion&lt;/li&gt;
+&lt;li&gt;autojump&lt;/li&gt;
+&lt;li&gt;theme&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&#34;fish配置:56d9c163c3c213e17f04852f404a0102&#34;&gt;fish配置&lt;/h3&gt;
 
-&lt;p&gt;&lt;code&gt;fish_config&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;fish_config&lt;/code&gt;，新开一个网页来配置主题，函数
+![fish_config](&amp;ldquo;&lt;a href=&#34;https://c1ay.github.io/static/fish_config.img&amp;quot;&#34;&gt;https://c1ay.github.io/static/fish_config.img&amp;quot;&lt;/a&gt;)&lt;/p&gt;
 </description>
     </item>
     
