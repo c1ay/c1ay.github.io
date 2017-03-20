@@ -278,7 +278,7 @@ application = tornado.web.Application([
 &lt;p&gt;&lt;code&gt;git clone https://github.com/edc/bass.git&lt;/code&gt;
 &lt;code&gt;make install&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;使用&lt;/p&gt;
+&lt;p&gt;bass使用效果, 这样就可以把以前的脚本迁移过来了&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://c1ay.github.io/img/bass.png&#34; alt=&#34;bass&#34;&gt;&lt;/p&gt;
 </description>
