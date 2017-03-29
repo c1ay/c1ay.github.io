@@ -263,7 +263,8 @@ application = tornado.web.Application([
 
 &lt;h4 id=&#34;提供对-bash-脚本支持:56d9c163c3c213e17f04852f404a0102&#34;&gt;提供对&lt;code&gt;bash&lt;/code&gt; 脚本支持&lt;/h4&gt;
 
-&lt;p&gt;安装&lt;code&gt;bass&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在fishshell里用bass来支持bash脚本
+安装&lt;code&gt;bass&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;git clone https://github.com/edc/bass.git&lt;/code&gt;
 &lt;code&gt;make install&lt;/code&gt;&lt;/p&gt;
