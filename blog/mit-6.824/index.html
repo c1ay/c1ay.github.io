@@ -13,10 +13,10 @@
 <title>
 
 
-     zsh to fish 
+     MIT 6.824 
 
 </title>
-<link rel="canonical" href="https://c1ay.github.io/blog/zsh-to-fish/">
+<link rel="canonical" href="https://c1ay.github.io/blog/mit-6.824/">
 
 
 
@@ -118,7 +118,7 @@
                 <div class="title-container">
                     <div class="page-heading">
 
-    zsh to fish
+    MIT 6.824
 
 </div>
 
@@ -126,7 +126,7 @@
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Wed Mar 16 2016 14:45:35 &#43;0800'>Mar 16, 2016</div>
+                    <div class="date" title='Thu May 4 2017 09:37:13 &#43;0800'>May 4, 2017</div>
                     
                     
                     <div class="reading-time"><div class="middot"></div>1 minute read</div>
@@ -136,88 +136,13 @@
             <div class="markdown">
                 
 
-<p>顺手的工具有不少，原来用<code>zsh</code>虽然很顺手，但总觉得有点慢，索性试了试<code>fish</code></p>
+<h3 id="前言:e0960773aecd094100b56404b29805c6">前言</h3>
 
-<h3 id="zsh-和-fish-对比:56d9c163c3c213e17f04852f404a0102">zsh 和 fish 对比</h3>
+<p>开了个新坑, <a href="http://nil.csail.mit.edu/6.824/2016/index.html">MIT6.824</a>，最近准备开始学习大名鼎鼎的MIT6.824分布式系统课程。这里是练习的地址<a href="https://github.com/c1ay/MIT6.824">github.com/c1ay/MIT6.824</a></p>
 
-<h4 id="zsh:56d9c163c3c213e17f04852f404a0102">zsh</h4>
+<h3 id="目录:e0960773aecd094100b56404b29805c6">目录</h3>
 
-<ul>
-<li>插件多，配置丰富</li>
-<li>插件多了慢</li>
-</ul>
-
-<h4 id="fish:56d9c163c3c213e17f04852f404a0102">fish</h4>
-
-<ul>
-<li>开箱即用</li>
-<li>不兼容bash语法</li>
-</ul>
-
-<h4 id="我需求的功能:56d9c163c3c213e17f04852f404a0102">我需求的功能</h4>
-
-<ul>
-<li>autosuggestion</li>
-<li>autojump</li>
-<li>theme</li>
-<li>git</li>
-</ul>
-
-<p>虽然fish的语法更加接近一名编程语言，奈何大多数工具脚本都是bash写的，而服务器上更不可能为了方便而安装fish,还是自己电脑上用好了</p>
-
-<p>不过发现<code>python</code> 的virtualenvl 的activate的有fishshell 支持的！！</p>
-
-<h3 id="一些语法改动:56d9c163c3c213e17f04852f404a0102">一些语法改动</h3>
-
-<p>PATH 写法</p>
-
-<p>bash:</p>
-
-<pre><code class="language-bash">export PATH=&quot;/usr/local/bin:$PATH&quot;
-</code></pre>
-
-<p>fish:</p>
-
-<pre><code class="language-fish">set PATH $PATH /usr/local/bin
-</code></pre>
-
-<h3 id="fish配置:56d9c163c3c213e17f04852f404a0102">fish配置</h3>
-
-<p>使用<code>fish_config</code>，新开一个网页来配置主题，函数</p>
-
-<p><img src="https://c1ay.github.io/img/fish_config.png" alt="fish_config"></p>
-
-<h3 id="fish插件管理工具-omf:56d9c163c3c213e17f04852f404a0102">fish插件管理工具 <code>omf</code></h3>
-
-<h4 id="安装omf:56d9c163c3c213e17f04852f404a0102">安装omf</h4>
-
-<p><code>curl -L https://get.oh-my.fish | fish</code></p>
-
-<h4 id="使用新主题:56d9c163c3c213e17f04852f404a0102">使用新主题</h4>
-
-<p><code>omf install robbyrussell</code></p>
-
-<p><code>omf theme robbyrussell</code></p>
-
-<p>这个主题对git的支持很完善</p>
-
-<p><img src="https://c1ay.github.io/img/robbyrussell.png" alt="robbyrussell"></p>
-
-<p>错误的也会有红色标记， 同时也会根据历史和命令给出建议</p>
-
-<p><img src="https://c1ay.github.io/img/cut_1.png" alt="cut_1"></p>
-
-<h4 id="提供对-bash-脚本支持:56d9c163c3c213e17f04852f404a0102">提供对<code>bash</code> 脚本支持</h4>
-
-<p>在fishshell里用bass来支持bash脚本
-安装<code>bass</code></p>
-
-<p><code>git clone https://github.com/edc/bass.git</code>
-<code>make install</code></p>
-
-<p>bass使用效果, 这样就可以把以前的脚本迁移过来了</p>
-
-<p><img src="https://c1ay.github.io/img/bass.png" alt="bass"></p>
+<p>pass</p>
 
                 <br>
                 <p><a href="https://c1ay.github.io/blog/">Back to posts</a></p>
@@ -227,9 +152,9 @@
                 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'c1ay';
-    var disqus_identifier = 'https:\/\/c1ay.github.io\/blog\/zsh-to-fish\/';
-    var disqus_title = 'zsh to fish';
-    var disqus_url = 'https:\/\/c1ay.github.io\/blog\/zsh-to-fish\/';
+    var disqus_identifier = 'https:\/\/c1ay.github.io\/blog\/mit-6.824\/';
+    var disqus_title = 'MIT 6.824';
+    var disqus_url = 'https:\/\/c1ay.github.io\/blog\/mit-6.824\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
