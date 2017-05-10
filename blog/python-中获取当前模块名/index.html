@@ -13,10 +13,10 @@
 <title>
 
 
-     zsh to fish 
+     python 中获取当前模块名 
 
 </title>
-<link rel="canonical" href="https://c1ay.github.io/blog/zsh-to-fish/">
+<link rel="canonical" href="https://c1ay.github.io/blog/python-%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%A8%A1%E5%9D%97%E5%90%8D/">
 
 
 
@@ -118,7 +118,7 @@
                 <div class="title-container">
                     <div class="page-heading">
 
-    zsh to fish
+    python 中获取当前模块名
 
 </div>
 
@@ -126,7 +126,7 @@
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Wed Mar 16 2016 14:45:35 &#43;0800'>Mar 16, 2016</div>
+                    <div class="date" title='Wed May 10 2017 15:00:43 &#43;0800'>May 10, 2017</div>
                     
                     
                     <div class="reading-time"><div class="middot"></div>1 minute read</div>
@@ -134,90 +134,22 @@
                 </div>
             </div>
             <div class="markdown">
-                
+                <p>今天在看<a href="https://github.com/channelcat/sanic">sanic</a>的实现时，看到 <a href="https://github.com/channelcat/sanic/blob/master/sanic/app.py#L45">app.py</a></p>
 
-<p>顺手的工具有不少，原来用<code>zsh</code>虽然很顺手，但总觉得有点慢，索性试了试<code>fish</code></p>
-
-<h3 id="zsh-和-fish-对比:56d9c163c3c213e17f04852f404a0102">zsh 和 fish 对比</h3>
-
-<h4 id="zsh:56d9c163c3c213e17f04852f404a0102">zsh</h4>
-
-<ul>
-<li>插件多，配置丰富</li>
-<li>插件多了慢</li>
-</ul>
-
-<h4 id="fish:56d9c163c3c213e17f04852f404a0102">fish</h4>
-
-<ul>
-<li>开箱即用</li>
-<li>不兼容bash语法</li>
-</ul>
-
-<h4 id="我需求的功能:56d9c163c3c213e17f04852f404a0102">我需求的功能</h4>
-
-<ul>
-<li>autosuggestion</li>
-<li>autojump</li>
-<li>theme</li>
-<li>git</li>
-</ul>
-
-<p>虽然fish的语法更加接近一名编程语言，奈何大多数工具脚本都是bash写的，而服务器上更不可能为了方便而安装fish,还是自己电脑上用好了</p>
-
-<p>不过发现<code>python</code> 的virtualenvl 的activate的有fishshell 支持的！！</p>
-
-<h3 id="一些语法改动:56d9c163c3c213e17f04852f404a0102">一些语法改动</h3>
-
-<p>PATH 写法</p>
-
-<p>bash:</p>
-
-<pre><code class="language-bash">export PATH=&quot;/usr/local/bin:$PATH&quot;
+<pre><code class="language-python"># Get name from previous stack frame
+if name is None:
+    frame_records = stack()[1]
+    name = getmodulename(frame_records[1])
 </code></pre>
 
-<p>fish:</p>
+<p>用<code>python</code>提供的<code>inspect</code>模块获取前一帧的模块名</p>
 
-<pre><code class="language-fish">set PATH $PATH /usr/local/bin
+<p><code>frame_records</code>是一个<code>FrameInfo</code>对象，打印出来如下:</p>
+
+<pre><code class="language-python">FrameInfo(frame=&lt;frame object at 0x7f28a3732828&gt;, filename='test.py', lineno=12, function='&lt;module&gt;', code_context=['print(foo(None))\n'], index=0)
 </code></pre>
 
-<h3 id="fish配置:56d9c163c3c213e17f04852f404a0102">fish配置</h3>
-
-<p>使用<code>fish_config</code>，新开一个网页来配置主题，函数</p>
-
-<p><img src="https://c1ay.github.io/img/fish_config.png" alt="fish_config"></p>
-
-<h3 id="fish插件管理工具-omf:56d9c163c3c213e17f04852f404a0102">fish插件管理工具 <code>omf</code></h3>
-
-<h4 id="安装omf:56d9c163c3c213e17f04852f404a0102">安装omf</h4>
-
-<p><code>curl -L https://get.oh-my.fish | fish</code></p>
-
-<h4 id="使用新主题:56d9c163c3c213e17f04852f404a0102">使用新主题</h4>
-
-<p><code>omf install robbyrussell</code></p>
-
-<p><code>omf theme robbyrussell</code></p>
-
-<p>这个主题对git的支持很完善</p>
-
-<p><img src="https://c1ay.github.io/img/robbyrussell.png" alt="robbyrussell"></p>
-
-<p>错误的也会有红色标记， 同时也会根据历史和命令给出建议</p>
-
-<p><img src="https://c1ay.github.io/img/cut_1.png" alt="cut_1"></p>
-
-<h4 id="提供对-bash-脚本支持:56d9c163c3c213e17f04852f404a0102">提供对<code>bash</code> 脚本支持</h4>
-
-<p>在fishshell里用bass来支持bash脚本
-安装<code>bass</code></p>
-
-<p><code>git clone https://github.com/edc/bass.git</code>
-<code>make install</code></p>
-
-<p>bass使用效果, 这样就可以把以前的脚本迁移过来了</p>
-
-<p><img src="https://c1ay.github.io/img/bass.png" alt="bass"></p>
+<p>由此可以获得当前的文件名，代码行数以及当前调用栈，现在能想到的是用在代码调试上。</p>
 
                 <br>
                 <p><a href="https://c1ay.github.io/blog/">Back to posts</a></p>
@@ -227,9 +159,9 @@
                 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'c1ay';
-    var disqus_identifier = 'https:\/\/c1ay.github.io\/blog\/zsh-to-fish\/';
-    var disqus_title = 'zsh to fish';
-    var disqus_url = 'https:\/\/c1ay.github.io\/blog\/zsh-to-fish\/';
+    var disqus_identifier = 'https:\/\/c1ay.github.io\/blog\/python-%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%A8%A1%E5%9D%97%E5%90%8D\/';
+    var disqus_title = 'python 中获取当前模块名';
+    var disqus_url = 'https:\/\/c1ay.github.io\/blog\/python-%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%A8%A1%E5%9D%97%E5%90%8D\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
