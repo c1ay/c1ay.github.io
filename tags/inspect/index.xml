@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inspect on c1ay</title>
+    <link>https://c1ay.github.io/tags/inspect/</link>
+    <description>Recent content in Inspect on c1ay</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 May 2017 15:00:43 +0800</lastBuildDate>
+    <atom:link href="https://c1ay.github.io/tags/inspect/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>python 中获取当前模块名</title>
+      <link>https://c1ay.github.io/blog/python-%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%A8%A1%E5%9D%97%E5%90%8D/</link>
+      <pubDate>Wed, 10 May 2017 15:00:43 +0800</pubDate>
+      
+      <guid>https://c1ay.github.io/blog/python-%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%A8%A1%E5%9D%97%E5%90%8D/</guid>
+      <description>&lt;p&gt;今天在看&lt;a href=&#34;https://github.com/channelcat/sanic&#34;&gt;sanic&lt;/a&gt;的实现时，看到 &lt;a href=&#34;https://github.com/channelcat/sanic/blob/master/sanic/app.py#L45&#34;&gt;app.py&lt;/a&gt;, 其中&lt;code&gt;stack&lt;/code&gt;和&lt;code&gt;getmodulename&lt;/code&gt;均从&lt;code&gt;inspect&lt;/code&gt;模块导入，&lt;code&gt;inspect&lt;/code&gt;模块主要为&lt;code&gt;python&lt;/code&gt;提供自省功能。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Get name from previous stack frame
+if name is None:
+    frame_records = stack()[1]
+    name = getmodulename(frame_records[1])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;用&lt;code&gt;python&lt;/code&gt;提供的&lt;code&gt;inspect&lt;/code&gt;模块获取前一帧的模块名&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;frame_records&lt;/code&gt;是一个&lt;code&gt;FrameInfo&lt;/code&gt;对象，打印出来如下:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;FrameInfo(frame=&amp;lt;frame object at 0x7f28a3732828&amp;gt;, filename=&#39;test.py&#39;, lineno=12, function=&#39;&amp;lt;module&amp;gt;&#39;, code_context=[&#39;print(foo(None))\n&#39;], index=0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;由此可以获得当前的文件名，代码行数以及当前调用栈，现在能想到的用途是用在代码调试上。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
