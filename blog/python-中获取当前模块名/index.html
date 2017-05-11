@@ -34,11 +34,11 @@
 
 
     
-    <link rel="stylesheet" href="https://c1ay.github.io/css/reset.css?t=1494400353">
-    <link rel="stylesheet" href="https://c1ay.github.io/css/pygments.css?t=1494400353">
-    <link rel="stylesheet" href="https://c1ay.github.io/css/main.css?t=1494400353">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/reset.css?t=1494474578">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/pygments.css?t=1494474578">
+    <link rel="stylesheet" href="https://c1ay.github.io/css/main.css?t=1494474578">
     
-        <link rel="stylesheet" href="https://c1ay.github.io/css/override.css?t=1494400353">
+        <link rel="stylesheet" href="https://c1ay.github.io/css/override.css?t=1494474578">
     
 
 
@@ -134,7 +134,7 @@
                 </div>
             </div>
             <div class="markdown">
-                <p>今天在看<a href="https://github.com/channelcat/sanic">sanic</a>的实现时，看到 <a href="https://github.com/channelcat/sanic/blob/master/sanic/app.py#L45">app.py</a></p>
+                <p>今天在看<a href="https://github.com/channelcat/sanic">sanic</a>的实现时，看到 <a href="https://github.com/channelcat/sanic/blob/master/sanic/app.py#L45">app.py</a>, 其中<code>stack</code>和<code>getmodulename</code>均从<code>inspect</code>模块导入，<code>inspect</code>模块主要为<code>python</code>提供自省功能。</p>
 
 <pre><code class="language-python"># Get name from previous stack frame
 if name is None:
@@ -149,7 +149,7 @@ if name is None:
 <pre><code class="language-python">FrameInfo(frame=&lt;frame object at 0x7f28a3732828&gt;, filename='test.py', lineno=12, function='&lt;module&gt;', code_context=['print(foo(None))\n'], index=0)
 </code></pre>
 
-<p>由此可以获得当前的文件名，代码行数以及当前调用栈，现在能想到的是用在代码调试上。</p>
+<p>由此可以获得当前的文件名，代码行数以及当前调用栈，现在能想到的用途是用在代码调试上。</p>
 
                 <br>
                 <p><a href="https://c1ay.github.io/blog/">Back to posts</a></p>
