@@ -6,8 +6,22 @@
     <description>Recent content on c1ay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 May 2017 15:00:43 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 May 2017 17:16:04 +0800</lastBuildDate>
     <atom:link href="https://c1ay.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>了解GraphQl</title>
+      <link>https://c1ay.github.io/blog/%E4%BA%86%E8%A7%A3graphql/</link>
+      <pubDate>Tue, 23 May 2017 17:16:04 +0800</pubDate>
+      
+      <guid>https://c1ay.github.io/blog/%E4%BA%86%E8%A7%A3graphql/</guid>
+      <description>
+
+&lt;h4 id=&#34;graphql-的设计:8513055bbb458ce3f0ce6d8e2d97a0f2&#34;&gt;GraphQl 的设计：&lt;/h4&gt;
+
+&lt;h4 id=&#34;在python中使用graphql:8513055bbb458ce3f0ce6d8e2d97a0f2&#34;&gt;在Python中使用GraphQL:&lt;/h4&gt;
+</description>
+    </item>
     
     <item>
       <title>python 中获取当前模块名</title>
