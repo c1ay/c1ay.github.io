@@ -6,20 +6,95 @@
     <description>Recent content on c1ay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 May 2017 17:16:04 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 May 2017 10:00:11 +0800</lastBuildDate>
     <atom:link href="https://c1ay.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>了解GraphQl</title>
-      <link>https://c1ay.github.io/blog/%E4%BA%86%E8%A7%A3graphql/</link>
+      <title>Learn GraphQL -学习GraphQL</title>
+      <link>https://c1ay.github.io/blog/learn-graphql--%E5%AD%A6%E4%B9%A0graphql/</link>
+      <pubDate>Wed, 24 May 2017 10:00:11 +0800</pubDate>
+      
+      <guid>https://c1ay.github.io/blog/learn-graphql--%E5%AD%A6%E4%B9%A0graphql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learn GraphQL -了解GraphQl（一）</title>
+      <link>https://c1ay.github.io/blog/learn-graphql--%E4%BA%86%E8%A7%A3graphql%E4%B8%80/</link>
       <pubDate>Tue, 23 May 2017 17:16:04 +0800</pubDate>
       
-      <guid>https://c1ay.github.io/blog/%E4%BA%86%E8%A7%A3graphql/</guid>
+      <guid>https://c1ay.github.io/blog/learn-graphql--%E4%BA%86%E8%A7%A3graphql%E4%B8%80/</guid>
       <description>
 
-&lt;h4 id=&#34;graphql-的设计:8513055bbb458ce3f0ce6d8e2d97a0f2&#34;&gt;GraphQl 的设计：&lt;/h4&gt;
+&lt;h4 id=&#34;graphql-简介:daac4e0304df38944c60b79ee78890c6&#34;&gt;GraphQL 简介:&lt;/h4&gt;
 
-&lt;h4 id=&#34;在python中使用graphql:8513055bbb458ce3f0ce6d8e2d97a0f2&#34;&gt;在Python中使用GraphQL:&lt;/h4&gt;
+&lt;p&gt;GraphQL是Facebook出品的应用层查询语言。你可以用GraphQL明确的定义基于基于图形的schema。客户端就可以请求它所需要的数据集了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://cldup.com/ysnmIMhqRU.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;所以，你不需要因为客户端请求数据的变动更改你的后端，这简单的解决了使用REST API的最大的问题之一。&lt;/p&gt;
+
+&lt;p&gt;GraphQL也允许让客户端高效的批量获取数据，比如下面就是一个GraphQL查询：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  latestPost {
+    _id,
+    title,
+    content,
+    author {
+      name
+    },
+    comments {
+      content,
+      author {
+        name
+      }
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这就是一个获取博客文章、评论以及作者信息的GraphQL请求，这是上面请求的结果:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;data&amp;quot;: {
+    &amp;quot;latestPost&amp;quot;: {
+      &amp;quot;_id&amp;quot;: &amp;quot;03390abb5570ce03ae524397d215713b&amp;quot;,
+      &amp;quot;title&amp;quot;: &amp;quot;New Feature: Tracking Error Status with Kadira&amp;quot;,
+      &amp;quot;content&amp;quot;: &amp;quot;Here is a common feedback we received from our users ...&amp;quot;,
+      &amp;quot;author&amp;quot;: {
+        &amp;quot;name&amp;quot;: &amp;quot;Pahan Sarathchandra&amp;quot;
+      },
+      &amp;quot;comments&amp;quot;: [
+        {
+          &amp;quot;content&amp;quot;: &amp;quot;This is a very good blog post&amp;quot;,
+          &amp;quot;author&amp;quot;: {
+            &amp;quot;name&amp;quot;: &amp;quot;Arunoda Susiripala&amp;quot;
+          }
+        },
+        {
+          &amp;quot;content&amp;quot;: &amp;quot;Keep up the good work&amp;quot;,
+          &amp;quot;author&amp;quot;: {
+            &amp;quot;name&amp;quot;: &amp;quot;Kasun Indi&amp;quot;
+          }
+        }
+      ]
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果使用REST, 则需要调用多个API 请求来获取这些数据。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GraphQL 是一个规范（标准）&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;所以，它可以用于任何平台，任何编程语言。它有一个由Facebook维护的&lt;a href=&#34;https://github.com/graphql/graphql-js&#34;&gt;JavaScript&lt;/a&gt;实现参考。也有很多由社区维护的其它语言&lt;a href=&#34;https://github.com/chentsulin/awesome-graphql#table-of-contents&#34;&gt;实现&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;这里是标准: &lt;a href=&#34;http://facebook.github.io/graphql/&#34;&gt;http://facebook.github.io/graphql/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;一旦你使用了GraphQL，你会想在所有项目都使用它&lt;/p&gt;
 </description>
     </item>
     

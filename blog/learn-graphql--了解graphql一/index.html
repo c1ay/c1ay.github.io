@@ -13,10 +13,10 @@
 <title>
 
 
-     hugo 
+     Learn GraphQL -了解GraphQl（一） 
 
 </title>
-<link rel="canonical" href="https://c1ay.github.io/blog/hugo/">
+<link rel="canonical" href="https://c1ay.github.io/blog/learn-graphql--%E4%BA%86%E8%A7%A3graphql%E4%B8%80/">
 
 
 
@@ -118,7 +118,7 @@
                 <div class="title-container">
                     <div class="page-heading">
 
-    hugo
+    Learn GraphQL -了解GraphQl（一）
 
 </div>
 
@@ -126,7 +126,7 @@
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Thu Jan 14 2016 13:35:32 &#43;0800'>Jan 14, 2016</div>
+                    <div class="date" title='Tue May 23 2017 17:16:04 &#43;0800'>May 23, 2017</div>
                     
                     
                     <div class="reading-time"><div class="middot"></div>1 minute read</div>
@@ -136,33 +136,75 @@
             <div class="markdown">
                 
 
-<h2 id="使用hugo:32ab7241d48fcc174c877413a917f8cf">使用hugo:</h2>
+<h4 id="graphql-简介:daac4e0304df38944c60b79ee78890c6">GraphQL 简介:</h4>
 
-<p>一直想学习<code>golang</code>，看到了<code>hugo</code>，想用hugo弄个博客，找到官方网站，跟着文档一步步来，安装，选主题，配置，没什么问题。步骤和<code>hexo</code>一样。</p>
+<p>GraphQL是Facebook出品的应用层查询语言。你可以用GraphQL明确的定义基于基于图形的schema。客户端就可以请求它所需要的数据集了。</p>
 
-<h2 id="踩坑:32ab7241d48fcc174c877413a917f8cf">踩坑:</h2>
+<p><img src="https://cldup.com/ysnmIMhqRU.png" alt="" /></p>
 
-<ul>
-<li>第一个坑：使用持续集成&mdash;<code>wercker</code>，官方文档中使用的<code>wercker</code>，应该是以前的版本，新版本已经将deploy去掉，变成可配置的工作流，需要自己加一个pipline</li>
+<p>所以，你不需要因为客户端请求数据的变动更改你的后端，这简单的解决了使用REST API的最大的问题之一。</p>
 
-<li><p>第二个坑：文档中是没有例子怎么将网站push到github pages，使用<code>leipert/git-push</code> push到github，这个项目是有bug:</p>
+<p>GraphQL也允许让客户端高效的批量获取数据，比如下面就是一个GraphQL查询：</p>
 
-<pre><code>run.sh: line 5: getAllStepVars: command not found
-</code></pre></li>
-</ul>
+<pre><code class="language-json">{
+  latestPost {
+    _id,
+    title,
+    content,
+    author {
+      name
+    },
+    comments {
+      content,
+      author {
+        name
+      }
+    }
+  }
+}
+</code></pre>
 
-<p>这个作者已经很久更新了，而且issue里是有人提了这个bug，也提交了pr，作者也没有更新。所以换做<code>ysqi/git-push</code></p>
+<p>这就是一个获取博客文章、评论以及作者信息的GraphQL请求，这是上面请求的结果:</p>
 
-<h2 id="使用-ci-持续集成:32ab7241d48fcc174c877413a917f8cf">使用<code>CI</code>(持续集成):</h2>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;latestPost&quot;: {
+      &quot;_id&quot;: &quot;03390abb5570ce03ae524397d215713b&quot;,
+      &quot;title&quot;: &quot;New Feature: Tracking Error Status with Kadira&quot;,
+      &quot;content&quot;: &quot;Here is a common feedback we received from our users ...&quot;,
+      &quot;author&quot;: {
+        &quot;name&quot;: &quot;Pahan Sarathchandra&quot;
+      },
+      &quot;comments&quot;: [
+        {
+          &quot;content&quot;: &quot;This is a very good blog post&quot;,
+          &quot;author&quot;: {
+            &quot;name&quot;: &quot;Arunoda Susiripala&quot;
+          }
+        },
+        {
+          &quot;content&quot;: &quot;Keep up the good work&quot;,
+          &quot;author&quot;: {
+            &quot;name&quot;: &quot;Kasun Indi&quot;
+          }
+        }
+      ]
+    }
+  }
+}
+</code></pre>
 
-<p>持续集成，我的感觉是将软件发布的流程自动化：</p>
+<p>如果使用REST, 则需要调用多个API 请求来获取这些数据。</p>
 
-<ul>
-<li>提交：对于开发者而言，是一次<code>commit</code></li>
-<li>构建：build, 将源码构建为实际运行代码</li>
-<li>测试：跑测试</li>
-<li>部署</li>
-</ul>
+<p><strong>GraphQL 是一个规范（标准）</strong></p>
+
+<p>所以，它可以用于任何平台，任何编程语言。它有一个由Facebook维护的<a href="https://github.com/graphql/graphql-js">JavaScript</a>实现参考。也有很多由社区维护的其它语言<a href="https://github.com/chentsulin/awesome-graphql#table-of-contents">实现</a></p>
+
+<blockquote>
+<p>这里是标准: <a href="http://facebook.github.io/graphql/">http://facebook.github.io/graphql/</a></p>
+</blockquote>
+
+<p>一旦你使用了GraphQL，你会想在所有项目都使用它</p>
 
                 <br>
                 <p><a href="https://c1ay.github.io/blog/">Back to posts</a></p>
@@ -172,9 +214,9 @@
                 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'c1ay';
-    var disqus_identifier = 'https:\/\/c1ay.github.io\/blog\/hugo\/';
-    var disqus_title = 'hugo';
-    var disqus_url = 'https:\/\/c1ay.github.io\/blog\/hugo\/';
+    var disqus_identifier = 'https:\/\/c1ay.github.io\/blog\/learn-graphql--%E4%BA%86%E8%A7%A3graphql%E4%B8%80\/';
+    var disqus_title = 'Learn GraphQL -了解GraphQl（一）';
+    var disqus_url = 'https:\/\/c1ay.github.io\/blog\/learn-graphql--%E4%BA%86%E8%A7%A3graphql%E4%B8%80\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
