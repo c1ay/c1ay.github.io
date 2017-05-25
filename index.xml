@@ -6,8 +6,35 @@
     <description>Recent content on c1ay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 May 2017 10:00:11 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 25 May 2017 11:10:23 +0800</lastBuildDate>
     <atom:link href="https://c1ay.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>python 加权随机</title>
+      <link>https://c1ay.github.io/blog/python-%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA/</link>
+      <pubDate>Thu, 25 May 2017 11:10:23 +0800</pubDate>
+      
+      <guid>https://c1ay.github.io/blog/python-%E5%8A%A0%E6%9D%83%E9%9A%8F%E6%9C%BA/</guid>
+      <description>&lt;p&gt;经常会遇到一种场景，从一堆数据中随机选择一个，一般用&lt;code&gt;random&lt;/code&gt;模块就能解决，如果这些数据被选择的概率不同，就需要在&lt;code&gt;random&lt;/code&gt;的基础上再做些改造。&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/c1ay/8a89ebc4b6655f668d2390ef0779ee50.js&#34;&gt;&lt;/script&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;In [6]: WeightedRandomGenerator([1, 3, 4, 2])()
+Out[6]: 2
+
+In [7]: WeightedRandomGenerator([1, 3, 4, 2])()
+Out[7]: 0
+
+In [8]: WeightedRandomGenerator([1, 3, 4, 2])()
+Out[8]: 2
+
+In [9]: WeightedRandomGenerator([1, 3, 4, 2])()
+Out[9]: 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;返回随机结果的索引值。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Learn GraphQL -学习GraphQL（二）</title>
