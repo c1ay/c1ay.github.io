@@ -6,8 +6,36 @@
     <description>Recent content in Blog on c1ay</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 May 2017 11:10:23 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jul 2017 22:17:52 +0800</lastBuildDate>
     <atom:link href="https://c1ay.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>eth_bug</title>
+      <link>https://c1ay.github.io/blog/eth_bug/</link>
+      <pubDate>Sat, 01 Jul 2017 22:17:52 +0800</pubDate>
+      
+      <guid>https://c1ay.github.io/blog/eth_bug/</guid>
+      <description>
+
+&lt;h4 id=&#34;2017年６月-以太坊拥堵原因分析:15c2de7f9c74ed946f2ff89b706f2af6&#34;&gt;2017年６月 以太坊拥堵原因分析&lt;/h4&gt;
+
+&lt;h5 id=&#34;以太坊转账需求暴增是本次拥堵的罪魁祸首:15c2de7f9c74ed946f2ff89b706f2af6&#34;&gt;以太坊转账需求暴增是本次拥堵的罪魁祸首。&lt;/h5&gt;
+
+&lt;h6 id=&#34;数字货币市场火热:15c2de7f9c74ed946f2ff89b706f2af6&#34;&gt;数字货币市场火热&lt;/h6&gt;
+
+&lt;p&gt;数字货币市场火热，吸引了众多投机者的加入，导致转账需求的激增。&lt;/p&gt;
+
+&lt;h6 id=&#34;ico项目的火热:15c2de7f9c74ed946f2ff89b706f2af6&#34;&gt;ICO项目的火热&lt;/h6&gt;
+
+&lt;p&gt;众多在以太坊上的代币ICO，导致很多人同时想转账给智能合约ICO，由于大量的国际ICO交易和其他以太坊交易同时发生，造成系统瘫痪。&lt;/p&gt;
+
+&lt;p&gt;由于很多代币都设置的固定的gas费用，所以大量的代币ICO为以太坊带来了很多高gas费交易.&lt;/p&gt;
+
+&lt;p&gt;ICO 项目设置了gas上限，超过上限的交易将会被拒绝。&lt;/p&gt;
+
+&lt;p&gt;gas cost（成本）=gas used（数量）*gas price（价格）&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>python 加权随机</title>
